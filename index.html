@@ -7,14 +7,33 @@
   <meta name="description" content="Hot Guys is a specialty coffee café in Phagwara, Punjab — two guys, one obsession, and coffee bold enough to replace everything you've been settling for." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="css/style.css?v=32" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" />
+  <link rel="stylesheet" href="css/style.css?v=49" />
   <link rel="stylesheet" href="css/animations.css?v=21" />
 </head>
 <body>
 
-<!-- ── Top navbar — logo only ── -->
-<header class="site-nav">
-  <img src="Logo-transparent.png" alt="Hot Guys Coffee" class="site-nav-logo">
+<!-- ── Navbar ── -->
+<header class="site-nav nav-hero" id="site-nav">
+  <div class="nav-progress-bar" id="nav-progress" aria-hidden="true"></div>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo-link" aria-label="Hot Guys Coffee — home">
+      <img src="Logo-transparent.png" alt="Hot Guys Coffee" class="site-nav-logo">
+    </a>
+    <nav class="nav-links" id="nav-links" aria-label="Site sections">
+      <a href="#about"        class="nav-link" data-nav="about">About</a>
+      <a href="#process"      class="nav-link" data-nav="process">Brew</a>
+      <a href="#team"         class="nav-link" data-nav="team">The Guys</a>
+      <a href="#testimonials" class="nav-link" data-nav="testimonials">Regulars</a>
+      <a href="#find-us"      class="btn-nav-cta" data-nav="find-us">Visit Us</a>
+    </nav>
+    <div class="nav-right">
+      <a href="#find-us" class="btn btn-nav-cta" data-nav="find-us">Visit Us</a>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
 </header>
 
 <!-- ── Scroll-locked slide stage ── -->
@@ -46,101 +65,160 @@
 <!-- ══════════════════════════════════════════
      ABOUT / BRAND STORY
 ══════════════════════════════════════════ -->
-<section class="section section-inverted border-top-ink slide" data-lock="1700" aria-labelledby="about-heading">
-  <div class="container">
-    <div class="brand-story reverse">
+<section class="section border-top-ink slide about-section" id="about" data-lock="1700" aria-labelledby="about-heading">
 
-      <!-- Café photo -->
-      <div class="brand-story-img about-photo-wrap">
-        <img src="coffee.png?v=1" alt="Hot Guys Coffee — latte being poured" class="about-photo">
-      </div>
+  <!-- Coffee plant illustration — top right -->
+  <div class="about-plant-deco" aria-hidden="true">
+    <img src="plant.png" alt="">
+  </div>
 
-      <div class="brand-story-text" style="color:var(--white);">
+  <!-- Coffee beans — bottom left -->
+  <div class="about-beans-deco" aria-hidden="true">
+    <img src="beans.png" alt="">
+  </div>
 
-        <h2 class="display-md reveal reveal-delay-1" id="about-heading">
+  <div class="about-inner">
+    <div class="about-redesign-grid">
+
+      <!-- LEFT: Story text -->
+      <div class="about-text-col">
+        <p class="about-our-story reveal"><span class="about-story-dot"></span>Our Story</p>
+        <h2 class="about-redesign-heading reveal reveal-delay-1" id="about-heading">
           Two guys.<br>
           One obsession.<br>
-          <em class="serif-display">Extraordinary coffee.</em>
+          <em>Extraordinary coffee.</em>
         </h2>
-        <p class="body-lg reveal reveal-delay-2" style="opacity:.7;margin-top:1rem;">
-          Hot Guys started as a bet and became a belief — that great coffee shouldn't be reserved for big cities or intimidating menus. We set up in Phagwara with a simple idea: brew honest, brew bold, and make sure everyone who walks in feels like a regular by the time they leave.
+        <p class="about-redesign-body reveal reveal-delay-2">
+          Hot Guys started as a bet and became a belief — that great coffee
+          shouldn't be reserved for big cities or intimidating menus. We set up
+          in Phagwara with a simple idea: brew honest, brew bold, and make sure
+          everyone who walks in feels like a regular by the time they leave.
         </p>
-        <p class="body-md reveal reveal-delay-3" style="opacity:.55;margin-top:.5rem;">
-          The space is minimal because the coffee does the talking — concrete counters, a scrolling ticker of our best one-liners, and two guys behind the bar who actually care what ends up in your cup.
-        </p>
-        <div class="reveal reveal-delay-4" style="margin-top:2rem;">
-          <a href="#process" class="btn btn-ghost-white">See How We Brew →</a>
+        <p class="about-signature reveal reveal-delay-3">— Karan &amp; Rohan</p>
+      </div>
+
+      <!-- RIGHT: Photo -->
+      <div class="about-photo-col reveal reveal-delay-2">
+        <div class="about-brewcare" aria-hidden="true">
+          <span>brewed with care,<br>not rush.</span>
+          <svg class="about-brewcare-arrow" viewBox="0 0 90 65" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#111111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8,8 Q35,12 58,32 Q68,42 66,56"/>
+            <path d="M60,52 L66,58 L72,52"/>
+          </svg>
+        </div>
+        <div class="about-polaroid">
+          <img src="coffee.png?v=1" alt="Hot Guys Coffee — latte art being poured">
         </div>
       </div>
+
     </div>
   </div>
+
+  <!-- Scroll cue -->
+  <div class="about-scroll-cue" aria-hidden="true"><span>Scroll</span></div>
+
 </section>
 
 <!-- ══════════════════════════════════════════
      FROM BEAN TO CUP (process — replaces menu)
 ══════════════════════════════════════════ -->
-<section class="section border-top-ink slide" data-lock="1150" id="process" aria-labelledby="process-heading">
-  <div class="process-deco-layer" aria-hidden="true">
-    <img src="deco-coffee-bag.png" class="process-deco process-deco--bag" alt="" loading="lazy">
-    <img src="deco-coffee-plant.png" class="process-deco process-deco--plant" alt="" loading="lazy">
+<section class="section border-top-ink slide process-section" data-lock="1150" id="process" aria-labelledby="process-heading">
+
+  <!-- Plant deco — top right -->
+  <div class="process-plant-deco" aria-hidden="true">
+    <img src="plant.png" alt="">
   </div>
-  <div class="container">
-    <div class="section-header reveal">
-      <h2 class="display-md" id="process-heading">From Bean<br><em class="serif-display">to Cup.</em></h2>
-      <p class="body-lg" style="opacity:.6;max-width:46ch;margin-top:1rem;">No shortcuts, no compromises — just four steps we obsess over so your cup doesn't have to.</p>
+
+  <div class="process-inner">
+
+    <!-- Header -->
+    <div class="process-header reveal">
+      <p class="process-eyebrow"><span class="process-eyebrow-dot"></span>Our Process</p>
+      <h2 class="process-heading" id="process-heading">From Bean<br><em>to Cup.</em></h2>
+      <p class="process-subtext">No shortcuts, no compromises —<br>just four steps we obsess over so<br>your cup doesn't have to.</p>
     </div>
 
-    <div class="grid-4">
-      <div class="icon-card reveal">
-        <div class="icon-card-icon">
-          <svg viewBox="0 0 32 32" fill="none" stroke="#111111" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <ellipse cx="16" cy="16" rx="9" ry="13" transform="rotate(25 16 16)"/>
-            <path d="M11,9 Q16,16 11,23" transform="rotate(25 16 16)"/>
-          </svg>
+    <!-- Steps -->
+    <div class="process-steps">
+
+      <div class="process-step reveal">
+        <span class="process-num">01</span>
+        <div class="process-icon-row">
+          <div class="process-icon">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <ellipse cx="16" cy="16" rx="9" ry="13" transform="rotate(25 16 16)"/>
+              <path d="M11,9 Q16,16 11,23" transform="rotate(25 16 16)"/>
+            </svg>
+          </div>
+          <div class="process-connector"></div>
         </div>
-        <p class="icon-card-title">Source</p>
-        <p class="icon-card-text">Specialty-grade, single-origin beans, sourced from people we actually trust.</p>
+        <p class="process-step-name">Source</p>
+        <p class="process-step-desc">Specialty-grade, single-origin beans, sourced from people we actually trust.</p>
       </div>
 
-      <div class="icon-card reveal reveal-delay-1">
-        <div class="icon-card-icon">
-          <svg viewBox="0 0 32 32" fill="none" stroke="#111111" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="16" cy="13" r="9"/>
-            <path d="M10,13 Q16,7 22,13 Q16,19 10,13"/>
-            <path d="M16,27 Q13,23 16,19 Q19,23 16,27" fill="#111111" fill-opacity=".15"/>
-          </svg>
+      <div class="process-step reveal reveal-delay-1">
+        <span class="process-num">02</span>
+        <div class="process-icon-row">
+          <div class="process-icon">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="16" cy="13" r="7"/>
+              <path d="M10,13 Q16,8 22,13 Q16,18 10,13"/>
+              <path d="M13,25 Q13,20 16,20 Q19,20 19,25"/>
+              <path d="M10,26 L22,26"/>
+            </svg>
+          </div>
+          <div class="process-connector"></div>
         </div>
-        <p class="icon-card-title">Roast</p>
-        <p class="icon-card-text">Small batches, roasted in-house until the profile is exactly right. No rushing it.</p>
+        <p class="process-step-name">Roast</p>
+        <p class="process-step-desc">Small batches, roasted in-house until the profile is exactly right.</p>
       </div>
 
-      <div class="icon-card reveal reveal-delay-2">
-        <div class="icon-card-icon">
-          <svg viewBox="0 0 32 32" fill="none" stroke="#111111" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M8,7 L24,7 L18,19 L14,19 Z"/>
-            <path d="M16,19 L16,23"/>
-            <circle cx="16" cy="26" r="1.6" fill="#111111" stroke="none"/>
-            <path d="M9,25 L23,25" stroke-opacity=".3"/>
-          </svg>
+      <div class="process-step reveal reveal-delay-2">
+        <span class="process-num">03</span>
+        <div class="process-icon-row">
+          <div class="process-icon">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M8,7 L24,7 L18,19 L14,19 Z"/>
+              <path d="M16,19 L16,23"/>
+              <circle cx="16" cy="26" r="1.5" fill="currentColor" stroke="none"/>
+              <path d="M9,25 L23,25" stroke-opacity=".3"/>
+            </svg>
+          </div>
+          <div class="process-connector"></div>
         </div>
-        <p class="icon-card-title">Brew</p>
-        <p class="icon-card-text">Dialled-in ratios, fresh grinds, zero guesswork. Every extraction, on purpose.</p>
+        <p class="process-step-name">Brew</p>
+        <p class="process-step-desc">Dialled-in ratios, fresh grounds, zero guesswork. Every extraction, on purpose.</p>
       </div>
 
-      <div class="icon-card reveal reveal-delay-3">
-        <div class="icon-card-icon">
-          <svg viewBox="0 0 32 32" fill="none" stroke="#111111" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M8,13 L10,25 L22,25 L24,13 Z"/>
-            <rect x="9" y="25" width="14" height="3" rx="1" fill="#111111" stroke="none"/>
-            <path d="M24,15 Q30,15 30,19 Q30,23 24,23"/>
-            <path d="M13,9 Q13,5 16,5 Q19,5 19,9" stroke-opacity=".6"/>
-          </svg>
+      <div class="process-step reveal reveal-delay-3">
+        <span class="process-num">04</span>
+        <div class="process-icon-row">
+          <div class="process-icon">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M8,13 L10,25 L22,25 L24,13 Z"/>
+              <path d="M9,28 L23,28"/>
+              <path d="M24,15 Q30,15 30,19 Q30,23 24,23"/>
+              <path d="M13,9 Q13,5 16,5 Q19,5 19,9" stroke-opacity=".6"/>
+            </svg>
+          </div>
         </div>
-        <p class="icon-card-title">Serve</p>
-        <p class="icon-card-text">Handed to you by someone who actually wants you to have a good morning.</p>
+        <p class="process-step-name">Serve</p>
+        <p class="process-step-desc">Handed to you by someone who actually wants you to have a good morning.</p>
       </div>
+
     </div>
   </div>
+
+  <!-- Coffee bag — bottom left -->
+  <div class="process-bag-deco" aria-hidden="true">
+    <img src="deco-coffee-bag.png" alt="" loading="lazy">
+  </div>
+
+  <!-- Coffee beans — bottom right -->
+  <div class="process-beans-deco" aria-hidden="true">
+    <img src="beans.png" alt="" loading="lazy">
+  </div>
+
 </section>
 
 <!-- ══════════════════════════════════════════
@@ -154,6 +232,10 @@
   <div class="container">
     <div class="section-header reveal">
       <h2 class="display-md" id="team-heading">Meet the <em class="serif-display">Hot Guys.</em></h2>
+      <svg class="team-heading-squiggle" viewBox="0 0 90 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M3,9 Q14,3 26,8 Q36,12 48,7 Q60,2 72,8 Q80,12 87,9" stroke="#111111" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <p class="team-subtext">Two friends. One shared obsession.<br>Great coffee. Good people. Every day.</p>
     </div>
     <div class="team-grid">
 
@@ -189,52 +271,134 @@
       </div>
 
     </div>
+
+    <!-- Handwritten closing quote -->
+    <div class="team-closing reveal">
+      <p class="team-closing-text">Different roles. Same goal:<br>Make your day a little better.</p>
+      <svg class="team-closing-squiggle" viewBox="0 0 60 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M2,5 Q15,1 30,5 Q45,9 58,5" stroke="#111111" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+
   </div>
 </section>
 
 <!-- ══════════════════════════════════════════
      TESTIMONIALS
 ══════════════════════════════════════════ -->
-<section class="section section-inverted border-top-ink slide" data-lock="1100" aria-labelledby="testimonials-heading" style="position:relative;">
-  <div class="vibe-deco-layer" aria-hidden="true">
-    <img src="deco-latte-bag.png"   class="vibe-deco vibe-deco--latte"  alt="" loading="lazy">
-    <img src="deco-plant-sign.png"  class="vibe-deco vibe-deco--plant"  alt="" loading="lazy">
-    <img src="deco-table-chair.png" class="vibe-deco vibe-deco--table"  alt="" loading="lazy">
+<section class="section border-top-ink slide testimonials-section" id="testimonials" data-lock="1100" aria-labelledby="testimonials-heading">
+
+  <!-- Latte + bag deco — top right -->
+  <div class="testimonials-latte-deco" aria-hidden="true">
+    <img src="deco-latte-bag.png" alt="" loading="lazy">
   </div>
-  <div class="container" style="position:relative;z-index:1;">
-    <div class="section-header reveal">
-      <h2 class="display-md" id="testimonials-heading" style="color:var(--white);">Stories<br>
-        <em class="serif-display">from our regulars.</em>
+
+  <div class="testimonials-inner">
+
+    <!-- Header -->
+    <div class="testimonials-header reveal">
+      <p class="testimonials-eyebrow"><span class="testimonials-eyebrow-dot"></span>Our Regulars</p>
+      <h2 class="testimonials-heading" id="testimonials-heading">
+        Stories<br><em>from our regulars.</em>
       </h2>
+      <svg class="testimonials-squiggle" viewBox="0 0 90 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M3,9 Q14,3 26,8 Q36,12 48,7 Q60,2 72,8 Q80,12 87,9" stroke="#111111" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <p class="testimonials-subtext">Real people. Real moments.<br>The reasons we do what we do.</p>
     </div>
-    <div class="testimonial-grid testimonial-grid--dark" role="list">
 
-      <blockquote class="testimonial-item reveal" role="listitem">
-        <p class="testimonial-quote">Ordered an espresso "just to try." Haven't managed to leave before 9pm since.</p>
-        <footer class="testimonial-author">
-          Ansh Grover
-          <span>Regular since day one</span>
-        </footer>
-      </blockquote>
+    <!-- Cards -->
+    <div class="testimonials-grid">
 
-      <blockquote class="testimonial-item reveal reveal-delay-1" role="listitem">
-        <p class="testimonial-quote">The cold brew ruined every other cold brew in Phagwara for me. Painfully, wonderfully good.</p>
-        <footer class="testimonial-author">
-          Meher Kaur
-          <span>Design student</span>
-        </footer>
-      </blockquote>
+      <div class="tcard reveal">
+        <span class="tcard-open-quote">&#8220;</span>
+        <div class="tcard-row">
+          <div class="tcard-avatar">
+            <svg viewBox="0 0 48 48" fill="none" stroke="#111111" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="24" cy="22" r="14"/>
+              <path d="M10,18 Q11,7 24,6 Q37,7 38,18 Q30,10 24,10 Q18,10 10,18"/>
+              <circle cx="19" cy="21" r="1.6" fill="#111111" stroke="none"/>
+              <circle cx="29" cy="21" r="1.6" fill="#111111" stroke="none"/>
+              <path d="M17,28 Q24,34 31,28"/>
+            </svg>
+          </div>
+          <div class="tcard-right">
+            <p class="tcard-quote">Ordered an espresso "just to try." Haven't managed to leave before 9pm since.</p>
+            <p class="tcard-name">Ansh Grover</p>
+            <p class="tcard-role">Regular since day one</p>
+          </div>
+        </div>
+        <p class="tcard-handwritten">See you tomorrow!</p>
+      </div>
 
-      <blockquote class="testimonial-item reveal reveal-delay-2" role="listitem">
-        <p class="testimonial-quote">Came for the coffee, stayed for the one-liners on the wall. Either way, worth the trip.</p>
-        <footer class="testimonial-author">
-          Divya Chawla
-          <span>Local food blogger</span>
-        </footer>
-      </blockquote>
+      <div class="tcard reveal reveal-delay-1">
+        <span class="tcard-open-quote">&#8220;</span>
+        <div class="tcard-row">
+          <div class="tcard-avatar">
+            <svg viewBox="0 0 48 48" fill="none" stroke="#111111" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="24" cy="22" r="14"/>
+              <path d="M9,16 Q10,6 24,5 Q38,6 39,16 Q30,9 24,9 Q18,9 9,16"/>
+              <path d="M18,12 Q22,9 26,12"/>
+              <circle cx="19" cy="20" r="1.6" fill="#111111" stroke="none"/>
+              <circle cx="29" cy="20" r="1.6" fill="#111111" stroke="none"/>
+              <path d="M18,28 Q24,33 30,28"/>
+            </svg>
+          </div>
+          <div class="tcard-right">
+            <p class="tcard-quote">The cold brew ruined every other cold brew in Phagwara for me. Painfully, wonderfully good.</p>
+            <p class="tcard-name">Meher Kaur</p>
+            <p class="tcard-role">Design student</p>
+          </div>
+        </div>
+        <p class="tcard-handwritten">Can't start my day without it.</p>
+      </div>
+
+      <div class="tcard reveal reveal-delay-2">
+        <span class="tcard-open-quote">&#8220;</span>
+        <div class="tcard-row">
+          <div class="tcard-avatar">
+            <svg viewBox="0 0 48 48" fill="none" stroke="#111111" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="24" cy="22" r="14"/>
+              <path d="M11,17 Q12,6 24,6 Q36,6 37,17 Q28,10 24,10 Q20,10 11,17"/>
+              <circle cx="20" cy="21" r="1.6" fill="#111111" stroke="none"/>
+              <circle cx="28" cy="21" r="1.6" fill="#111111" stroke="none"/>
+              <circle cx="20" cy="21" r="4" stroke-width="1" stroke-opacity=".3"/>
+              <circle cx="28" cy="21" r="4" stroke-width="1" stroke-opacity=".3"/>
+              <path d="M18,28 Q24,33 30,28"/>
+            </svg>
+          </div>
+          <div class="tcard-right">
+            <p class="tcard-quote">Came for the coffee, stayed for the one-liners on the wall. Either way, worth the trip.</p>
+            <p class="tcard-name">Divya Chawla</p>
+            <p class="tcard-role">Local food blogger</p>
+          </div>
+        </div>
+        <p class="tcard-handwritten">Already planning my next visit.</p>
+      </div>
 
     </div>
+
+    <!-- Closing -->
+    <div class="testimonials-closing reveal">
+      <p class="testimonials-closing-text">Thank you for being a part of our story.</p>
+      <svg class="testimonials-bean-icon" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <ellipse cx="10" cy="7" rx="8" ry="5.5" stroke="#111111" stroke-width="1.3"/>
+        <path d="M4,4 Q10,7 16,10" stroke="#111111" stroke-width="1" stroke-linecap="round" opacity=".5"/>
+      </svg>
+    </div>
+
   </div>
+
+  <!-- Plant + sign — bottom left -->
+  <div class="testimonials-plant-deco" aria-hidden="true">
+    <img src="deco-plant-sign.png" alt="" loading="lazy">
+  </div>
+
+  <!-- Table + chair — bottom right -->
+  <div class="testimonials-table-deco" aria-hidden="true">
+    <img src="deco-table-chair.png" alt="" loading="lazy">
+  </div>
+
 </section>
 
 <!-- gallery strip removed -->
@@ -309,25 +473,38 @@
 <!-- ══════════════════════════════════════════
      CTA + FIND US (combined)
 ══════════════════════════════════════════ -->
-<section class="section border-top-ink slide" id="find-us" data-lock="1100" aria-labelledby="cta-heading">
+<section class="section border-top-ink slide find-us-dark" id="find-us" data-lock="1100" aria-labelledby="cta-heading">
+  <!-- Coffee ring watermarks -->
+  <div class="coffee-ring-deco" aria-hidden="true">
+    <svg style="width:320px;height:320px;bottom:-90px;left:-70px;transform:rotate(-12deg);" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="100" cy="100" r="88" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="12"/>
+      <circle cx="100" cy="100" r="71" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="4"/>
+      <circle cx="100" cy="100" r="58" fill="rgba(255,255,255,0.02)"/>
+    </svg>
+    <svg style="width:180px;height:180px;top:10%;right:8%;transform:rotate(8deg);" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="70" cy="70" r="60" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="9"/>
+      <circle cx="70" cy="70" r="47" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="3"/>
+    </svg>
+  </div>
+
   <div class="container">
     <div class="cta-find-grid">
 
       <div class="cta-left reveal">
-        <h2 class="display-md" id="cta-heading">
+        <h2 class="display-md cta-heading-dark" id="cta-heading">
           Ready to become<br><em class="serif-display">a regular?</em>
         </h2>
         <div class="cta-btns">
-          <a href="https://wa.me/919876543210" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/919876543210" class="btn cta-btn-wa" target="_blank" rel="noopener noreferrer">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
             Chat on WhatsApp
           </a>
-          <a href="tel:+919876543210" class="btn btn-ghost">
+          <a href="tel:+919876543210" class="btn cta-btn-outline">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.7A2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
             Call Us
           </a>
         </div>
-        <div class="cta-details">
+        <div class="cta-details cta-details-dark">
           <div class="cta-detail-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-7.58 7-12A7 7 0 1 0 5 9c0 4.42 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/></svg>
             <div><p class="cta-detail-label">Address</p><p class="cta-detail-value">Phagwara, Punjab, India</p></div>
@@ -341,40 +518,91 @@
             <div><p class="cta-detail-label">Phone</p><p class="cta-detail-value">+91 98765 43210</p></div>
           </div>
           <div class="cta-detail-item">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="opacity:.45"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             <div><p class="cta-detail-label">Instagram</p><p class="cta-detail-value">@hotguyscafe</p></div>
           </div>
         </div>
       </div>
 
       <div class="cta-right reveal reveal-delay-2">
-        <div class="cta-map-frame">
+        <div class="cta-map-frame cta-map-dark">
           <svg viewBox="0 0 400 340" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <defs>
               <pattern id="mapdots2" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                <circle cx="2" cy="2" r="1.2" fill="#111111" opacity=".09"/>
+                <circle cx="2" cy="2" r="1.2" fill="#ffffff" opacity=".07"/>
               </pattern>
             </defs>
-            <rect width="400" height="340" fill="#F5F3F0"/>
+            <rect width="400" height="340" fill="#1a1a1a"/>
             <rect width="400" height="340" fill="url(#mapdots2)"/>
-            <line x1="0" y1="100" x2="400" y2="100" stroke="#111111" stroke-width="1" stroke-dasharray="8 8" opacity=".12"/>
-            <line x1="0" y1="240" x2="400" y2="240" stroke="#111111" stroke-width="1" stroke-dasharray="8 8" opacity=".12"/>
-            <line x1="120" y1="0" x2="120" y2="340" stroke="#111111" stroke-width="1" stroke-dasharray="8 8" opacity=".08"/>
-            <line x1="280" y1="0" x2="280" y2="340" stroke="#111111" stroke-width="1" stroke-dasharray="8 8" opacity=".08"/>
-            <circle cx="200" cy="155" r="70" fill="#111111" opacity=".04"/>
-            <circle cx="200" cy="155" r="46" fill="#111111" opacity=".06"/>
-            <circle cx="200" cy="155" r="26" fill="#111111" opacity=".09"/>
-            <path d="M200,122 C182,122 168,136 168,155 C168,178 200,210 200,210 C200,210 232,178 232,155 C232,136 218,122 200,122 Z" fill="#111111"/>
-            <circle cx="200" cy="155" r="10" fill="#F5F3F0"/>
-            <text x="200" y="248" fill="#111111" text-anchor="middle" font-family="Sora, sans-serif" font-weight="700" font-size="14" opacity=".75">Hot Guys Café</text>
-            <text x="200" y="266" fill="#111111" text-anchor="middle" font-family="Sora, sans-serif" font-weight="700" font-size="9" letter-spacing="2" opacity=".4">PHAGWARA, PUNJAB</text>
-            <text x="200" y="290" fill="#111111" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-size="12" opacity=".5">We'll leave the light on.</text>
+            <line x1="0" y1="100" x2="400" y2="100" stroke="#ffffff" stroke-width="1" stroke-dasharray="8 8" opacity=".08"/>
+            <line x1="0" y1="240" x2="400" y2="240" stroke="#ffffff" stroke-width="1" stroke-dasharray="8 8" opacity=".08"/>
+            <line x1="120" y1="0" x2="120" y2="340" stroke="#ffffff" stroke-width="1" stroke-dasharray="8 8" opacity=".06"/>
+            <line x1="280" y1="0" x2="280" y2="340" stroke="#ffffff" stroke-width="1" stroke-dasharray="8 8" opacity=".06"/>
+            <circle cx="200" cy="145" r="70" fill="#ffffff" opacity=".04"/>
+            <circle cx="200" cy="145" r="46" fill="#ffffff" opacity=".06"/>
+            <circle cx="200" cy="145" r="26" fill="#ffffff" opacity=".09"/>
+            <path d="M200,112 C182,112 168,126 168,145 C168,168 200,200 200,200 C200,200 232,168 232,145 C232,126 218,112 200,112 Z" fill="#ffffff"/>
+            <circle cx="200" cy="145" r="10" fill="#1a1a1a"/>
+            <text x="200" y="236" fill="#ffffff" text-anchor="middle" font-family="Sora, sans-serif" font-weight="700" font-size="14" opacity=".75">Hot Guys Café</text>
+            <text x="200" y="254" fill="#ffffff" text-anchor="middle" font-family="Sora, sans-serif" font-weight="700" font-size="9" letter-spacing="2" opacity=".4">PHAGWARA, PUNJAB</text>
+            <text x="200" y="278" fill="#ffffff" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-size="12" opacity=".45">We'll leave the light on.</text>
           </svg>
         </div>
       </div>
 
     </div>
   </div>
+
+  <!-- Footer -->
+  <footer class="find-us-footer" role="contentinfo">
+    <div class="footer-inner">
+
+      <!-- Brand -->
+      <div class="footer-col footer-col--brand">
+        <img src="Logo-transparent.png" alt="Hot Guys Coffee" class="footer-logo">
+        <p class="footer-tagline">Phagwara's finest.</p>
+        <p class="footer-desc">A café built on friendship,<br>good coffee, and good people.</p>
+      </div>
+
+      <!-- Navigation -->
+      <div class="footer-col footer-col--nav">
+        <p class="footer-col-label">Navigate</p>
+        <nav aria-label="Footer navigation">
+          <a href="#">Home</a>
+          <a href="#about">About</a>
+          <a href="#process">Brew</a>
+          <a href="#team">The Guys</a>
+          <a href="#testimonials">Regulars</a>
+          <a href="#find-us">Visit</a>
+        </nav>
+      </div>
+
+      <!-- Connect -->
+      <div class="footer-col footer-col--connect">
+        <p class="footer-col-label">Connect</p>
+        <div class="footer-socials">
+          <a href="https://wa.me/919876543210" class="footer-social-link" target="_blank" rel="noopener">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            WhatsApp
+          </a>
+          <a href="https://instagram.com/hotguyscafe" class="footer-social-link" target="_blank" rel="noopener">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            @hotguyscafe
+          </a>
+        </div>
+        <div class="footer-contact-info">
+          <a href="tel:+919876543210">+91 98765 43210</a>
+          <a href="mailto:hello@hotguyscafe.com">hello@hotguyscafe.com</a>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Hot Guys Coffee · All rights reserved.</p>
+      <p class="footer-bottom-script">Brewed with love in Phagwara, Punjab.</p>
+    </div>
+  </footer>
+
 </section>
 
 

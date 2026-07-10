@@ -116,7 +116,7 @@
 
     function place(index, animate) {
       if (!animate) stage.style.transition = 'none';
-      stage.style.transform = 'translateY(calc(-' + index + ' * (100svh - var(--nav-h))))';
+      stage.style.transform = 'translateY(-' + (index * 100) + 'svh)';
       if (!animate) {
         // Force reflow so the transition-less jump actually applies before re-enabling it
         void stage.offsetHeight;
@@ -256,43 +256,63 @@
     });
   });
 
-  /* ── Adaptive brand mark ──
-     Samples whatever's actually rendered behind the fixed logo and
-     flips it black/white to match — works during scroll-jack slide
-     changes and during normal scrolling (reduced-motion fallback). */
+  /* ── Navbar: transparent-over-hero, active links, progress, hamburger ── */
   (function () {
-    const mark = document.querySelector('.brand-mark');
-    if (!mark) return;
+    var nav         = document.getElementById('site-nav');
+    var progressBar = document.getElementById('nav-progress');
+    var hamburger   = document.getElementById('nav-hamburger');
+    var mobileMenu  = document.getElementById('nav-links');
+    if (!nav) return;
 
-    function isDarkAt(x, y) {
-      let el = document.elementFromPoint(x, y);
-      while (el && el !== document.documentElement) {
-        const bg = getComputedStyle(el).backgroundColor;
-        const m = bg.match(/rgba?\(([^)]+)\)/);
-        if (m) {
-          const parts = m[1].split(',').map(Number);
-          const alpha = parts.length > 3 ? parts[3] : 1;
-          if (alpha > 0.5) {
-            const lum = 0.299 * parts[0] + 0.587 * parts[1] + 0.114 * parts[2];
-            return lum < 128;
-          }
-        }
-        el = el.parentElement;
-      }
-      return false;
+    // Slide index → data-nav value for active highlighting
+    var slideNavMap = ['', 'about', 'process', 'team', 'testimonials', 'find-us'];
+    var allSlides   = Array.from(document.querySelectorAll('#scroll-stage > .slide'));
+    var totalSlides = allSlides.length;
+    var currentIdx  = 0;
+
+    function setActive(idx) {
+      currentIdx = idx;
+      var activeKey = slideNavMap[idx] || '';
+
+      // Transparent only over hero (slide 0)
+      nav.classList.toggle('nav-hero', idx === 0);
+
+      // Progress bar
+      var pct = totalSlides > 1 ? (idx / (totalSlides - 1)) * 100 : 0;
+      progressBar.style.width = pct + '%';
+
+      // Active nav link underline
+      nav.querySelectorAll('.nav-link').forEach(function (link) {
+        link.classList.toggle('active', link.dataset.nav === activeKey);
+      });
     }
 
-    function sampleTone() {
-      const r = mark.getBoundingClientRect();
-      const x = Math.min(window.innerWidth - 1, Math.max(0, r.left + r.width / 2));
-      const y = Math.min(window.innerHeight - 1, Math.max(0, r.top + r.height / 2));
-      mark.classList.toggle('on-dark', isDarkAt(x, y));
-    }
+    // Listen to scroll-jack slide changes
+    document.addEventListener('slideenter', function (e) {
+      var idx = allSlides.indexOf(e.target);
+      if (idx !== -1) setActive(idx);
+    });
 
-    sampleTone();
-    document.addEventListener('slidesettled', sampleTone);
-    window.addEventListener('scroll', function () { requestAnimationFrame(sampleTone); }, { passive: true });
-    window.addEventListener('resize', sampleTone);
+    // Initialise to hero state
+    setActive(0);
+
+    // Hamburger toggle
+    if (hamburger && mobileMenu) {
+      hamburger.addEventListener('click', function () {
+        var open = mobileMenu.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        hamburger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      });
+
+      // Close menu when a link is tapped
+      mobileMenu.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          mobileMenu.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+          hamburger.setAttribute('aria-label', 'Open menu');
+        });
+      });
+    }
   })();
 
 })();
