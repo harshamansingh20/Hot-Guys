@@ -1,0 +1,125 @@
+/* ============================================================
+   THE STORYLINE — Animated Illustrations
+   Pure B&W SVG line-art, draw-on + continuous loops
+   Technique: pathLength="1" on every drawn shape so
+   stroke-dasharray/offset work at any path length.
+   ============================================================ */
+
+/* ── 1. Draw-on: paths start invisible ────────────────────── */
+.illus-svg .dp {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+/* When .drawn is added by JS, each .dp animates using its own
+   --draw-delay / --draw-dur custom props */
+.illus-svg.drawn .dp {
+  animation: ts-draw var(--draw-dur, 0.85s) cubic-bezier(0.22, 1, 0.36, 1)
+             var(--draw-delay, 0s) both;
+}
+@keyframes ts-draw { to { stroke-dashoffset: 0; } }
+
+/* Solid-fill elements (dots, eraser blobs) fade in separately */
+.illus-svg .ts-fade {
+  opacity: 0;
+  transition: opacity 0s; /* overridden when drawn */
+}
+.illus-svg.drawn .ts-fade {
+  opacity: 1;
+  transition: opacity 0.25s ease var(--fill-delay, 1.2s);
+}
+
+/* ── 2. Steam wisps — continuous loop ─────────────────────── */
+/* NOTE: steam paths must NOT have .dp — they bypass draw-on  */
+.sp {
+  stroke-dasharray: none !important;
+  stroke-dashoffset: 0 !important;
+  transform-origin: 50% 100%;
+  opacity: 0;
+  animation: ts-steam 2.8s ease-in-out infinite;
+}
+.sp:nth-of-type(1) { animation-delay: 0s;   }
+.sp:nth-of-type(2) { animation-delay: 0.9s; }
+.sp:nth-of-type(3) { animation-delay: 1.8s; }
+
+@keyframes ts-steam {
+  0%   { transform: translateY(0)     scaleX(1);    opacity: 0;    }
+  12%  { opacity: 0.75; }
+  70%  { opacity: 0.3;  }
+  100% { transform: translateY(-30px) scaleX(0.62); opacity: 0;    }
+}
+
+/* ── 3. Float bob ─────────────────────────────────────────── */
+@keyframes ts-float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+.ts-float   { animation: ts-float 3.6s ease-in-out infinite; }
+.ts-float-2 { animation: ts-float 3.6s ease-in-out infinite 0.6s; }
+.ts-float-3 { animation: ts-float 4.2s ease-in-out infinite 1.2s; }
+
+/* ── 4. Spinning asterisk ─────────────────────────────────── */
+@keyframes ts-cw  { to { transform: rotate( 360deg); } }
+@keyframes ts-ccw { to { transform: rotate(-360deg); } }
+.ts-spin-cw  { display: inline-block; animation: ts-cw  16s linear infinite; }
+.ts-spin-ccw { display: inline-block; animation: ts-ccw 22s linear infinite; }
+
+/* ── 5. Scale pulse ───────────────────────────────────────── */
+@keyframes ts-pulse { 0%,100% {transform:scale(1)} 50% {transform:scale(1.05)} }
+.ts-pulse { animation: ts-pulse 3s ease-in-out infinite; }
+
+/* ── 6. Marching-ant dashes (animated dotted line) ───────── */
+@keyframes ts-march { to { stroke-dashoffset: -18; } }
+.ts-march {
+  stroke-dasharray: 5 7 !important;
+  stroke-dashoffset: 0 !important;
+  animation: ts-march 1.1s linear infinite;
+}
+
+/* ── 7. Cursor blink (pencil illustration) ───────────────── */
+@keyframes ts-blink { 0%,100%{opacity:1} 50%{opacity:0} }
+.ts-cursor { opacity: 0; }
+.ts-cursor-on { animation: ts-blink 0.85s step-start infinite; }
+
+/* ── 8. Wiggle (for sprout in breeze) ────────────────────── */
+@keyframes ts-wiggle {
+  0%,100% { transform: rotate(0deg);   }
+  25%      { transform: rotate(2deg);   }
+  75%      { transform: rotate(-2deg);  }
+}
+.ts-wiggle { transform-origin: 50% 100%; animation: ts-wiggle 3s ease-in-out infinite 2.8s; }
+
+/* ── 9. Stroke color tokens ─────────────────────────────── */
+.illus-svg          { stroke: #111111; }
+.illus-svg--white   { stroke: #FFFFFF; }
+.illus-svg .ts-dot  { stroke: none; fill: #111111; }
+.illus-svg--white .ts-dot { fill: #FFFFFF; }
+
+/* ── Illustration wrapper utility ──────────────────────── */
+.illus-wrap {
+  display: block;
+  pointer-events: none;
+  user-select: none;
+  line-height: 0;
+  flex-shrink: 0;
+}
+/* Allow steam / float to overflow the SVG's own bounding box */
+.illus-svg { overflow: visible; }
+
+/* ── Inline-label asterisk ─────────────────────────────── */
+.label-star {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  margin-right: 0.4rem;
+  opacity: 0.5;
+}
+
+/* ── Reduced motion: skip all animations ─────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .illus-svg .dp         { stroke-dashoffset: 0 !important; animation: none !important; }
+  .illus-svg .ts-fade    { opacity: 1 !important; transition: none !important; }
+  .sp, .ts-float, .ts-float-2, .ts-float-3,
+  .ts-spin-cw, .ts-spin-ccw, .ts-pulse, .ts-march,
+  .ts-wiggle, .ts-cursor-on { animation: none !important; opacity: 1 !important; }
+}
